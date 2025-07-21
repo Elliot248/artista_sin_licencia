@@ -1,0 +1,170 @@
+
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+
+
+
+  .container .image-logo {
+     position: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        padding: 10px;
+      }
+
+  .container .image-logo img {
+     height: 10%;
+        width: 10%;
+      }
+
+
+
+      .container h3 {
+
+  font-size: ;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  color: #1B1B1D;
+  margin-bottom: 15px;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      .container {
+        position: relative;
+        min-height: 100vh;
+        background: #e0e0e0;
+      }
+
+      .container .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        padding: 10px;
+      }
+
+      .container .image-container .image {
+        height: 250px;
+        width: 350px;
+        border: 10px solid white;
+        box-shadow: 0 5px 15px black;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .container .image-container .image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: 0.2s linear;
+      }
+      .container .image-container .image:hover img {
+        transform: scale(1.1);
+      }
+
+      .container .popup-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: black;
+        height: 100%;
+        width: 100%;
+        z-index: 100;
+        display: none;
+      }
+      .container .popup-image span {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-size: 40px;
+        font-weight: bolder;
+        color: white;
+        cursor: pointer;
+        z-index: 100;
+      }
+
+      .container .popup-image img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid white;
+        border-radius: 5px;
+        width: 750px;
+        object-fit: cover;
+      }
+
+      @media (max-width: 768px) {
+        .container .popup-image img {
+          width: 95%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-logo"><img src="images/logoaslfp.png" alt=""/>
+        </div>
+        <h3>GALERIA</h3><br><br><br>
+      <div class="image-container">
+        <div class="image"><img src="images/endevor.jpg" alt="" /></div>
+        <div class="image"><img src="images/gohan.jpg" alt="" /></div>
+        <div class="image"><img src="images/ikki.jpg" alt="" /></div>
+        <div class="image"><img src="images/magaoscura.jpg" alt="" /></div>
+        <div class="image"><img src="images/saitama.jpg" alt="" /></div>
+        <div class="image"><img src="images/toji.jpg" alt="" /></div>
+        <div class="image"><img src="images/yuta.jpg" alt="" /></div>
+        <div class="image"><img src="images/luffy.jpg" alt="" /></div>
+       <div class="image"><img src="images/sesshomaru.jpg" alt="" /></div>
+        <div class="image"><img src="images/goku.jpg" alt="" /></div>
+
+
+
+
+      </div>
+
+      <div class="popup-image">
+        <span>&times;</span>
+        <img src="" alt="" />
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".image img").forEach(image => {
+        image.onclick = () => {
+          document.querySelector(".popup-image").style.display = "block";
+          document.querySelector(".popup-image img").src =
+            image.getAttribute("src");
+        };
+      });
+
+      document.querySelector(".popup-image span").onclick = () => {
+        document.querySelector(".popup-image").style.display = "none";
+      };
+    </script>
+  </body>
+</html>
